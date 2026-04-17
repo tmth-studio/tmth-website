@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tough Minds, Tender Hearts</title>
-  <meta name="description" content="A venture studio applying systems engineering to the design of new ventures — resolving structural problems before anything is built.">
+  <meta name="description" content="Venture studio and coaching practice. Structural rigour and inner work — for founders building something that matters.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=IBM+Plex+Mono:wght@300;400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&display=swap" rel="stylesheet">
@@ -166,19 +166,20 @@
       animation: in 0.5s ease forwards 0.9s;
     }
 
-    /* ── OFFERINGS ── */
+    /* ── SECTION LABEL ── */
     .section-label {
       font-family: var(--mono);
-      font-size: 10.5px;
-      font-weight: 300;
-      letter-spacing: 0.2em;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--mid);
+      color: var(--ink);
       margin-bottom: 52px;
       opacity: 0;
       animation: up 0.5s ease forwards 1.0s;
     }
 
+    /* ── OFFERINGS GRID (2-col) ── */
     .offerings {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -213,6 +214,34 @@
       }
     }
 
+    /* ── WIDE OFFERING (1-col, horizontal layout) ── */
+    .offering--wide {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      border-top: 2px solid var(--ink);
+      padding: 44px 0;
+      align-items: start;
+      opacity: 0;
+      animation: up 0.6s ease forwards 1.1s;
+    }
+
+    .offering--wide .offering-body {
+      max-width: none;
+    }
+
+    .offering--wide .offering-status {
+      margin-top: 28px;
+    }
+
+    @media (max-width: 680px) {
+      .offering--wide {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    /* ── OFFERING ELEMENTS ── */
     .offering-num {
       font-family: var(--mono);
       font-size: 10px;
@@ -259,6 +288,27 @@
       border-radius: 50%;
       background: var(--accent);
       opacity: 0.9;
+    }
+
+    /* ── CTA ── */
+    .offering-cta {
+      display: inline-block;
+      margin-top: 24px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 2px;
+      transition: color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .offering-cta:hover {
+      color: var(--accent);
+      border-color: var(--accent);
     }
 
     /* ── FOOTER ── */
@@ -313,21 +363,37 @@
     </nav>
 
     <header class="hero">
-      <p class="hero-kicker">Venture Studio</p>
+      <p class="hero-kicker">Venture Studio &amp; Practice</p>
       <h1 class="hero-title">
         <span class="l1">Tough Minds,</span>
         <span class="l2">Tender Hearts.</span>
       </h1>
       <div class="hero-text">
-        <p>Most ventures fail because the architecture doesn't work — not because the founders lacked vision or effort.</p>
-        <p>We apply systems engineering to the design of new ventures, resolving structural problems before anything is built.</p>
+        <p>Most founders are capable of building something great. What gets in the way isn't skill or effort — it's the stories about how entrepreneurship is supposed to go.</p>
+        <p>We work at two levels: the structural architecture of the venture, and the inner work of the person building it.</p>
       </div>
     </header>
 
     <hr class="divider">
 
     <section>
-      <p class="section-label">Current work</p>
+      <p class="section-label">Services</p>
+      <div class="offering--wide">
+        <div>
+          <p class="offering-num">01 —</p>
+          <h2 class="offering-title">Business<br>Coaching</h2>
+        </div>
+        <div>
+          <p class="offering-body">Most founders are capable of building something great. What gets in the way isn't skill or effort — it's the stories about how entrepreneurship is supposed to go. Coaching that works at two levels: the structural architecture of your venture, and the inner work of becoming the founder your venture actually needs.</p>
+          <span class="offering-status">Taking enquiries</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section>
+      <p class="section-label">Tools</p>
       <div class="offerings">
         <div class="offering">
           <p class="offering-num">01 —</p>
@@ -345,8 +411,24 @@
       </div>
     </section>
 
+    <hr class="divider">
+
+    <section>
+      <p class="section-label">Ventures</p>
+      <div class="offering--wide">
+        <div>
+          <p class="offering-num">01 —</p>
+          <h2 class="offering-title">Online Dispute<br>Resolution</h2>
+        </div>
+        <div>
+          <p class="offering-body">An online service helping individuals resolve small claims without going to court — reaching fair settlements without expensive legal facilitation. Currently in architectural design through Cornell's Market Creators Lab.</p>
+          <span class="offering-status">In development</span>
+        </div>
+      </div>
+    </section>
+
     <footer class="footer">
-      <span class="footer-copy">© 2025 Tough Minds, Tender Hearts Ltd.</span>
+      <span class="footer-copy">© 2026 Tough Minds, Tender Hearts Ltd.</span>
       <span class="footer-contact"><a href="mailto:tom@toughmindshearts.com">tom@toughmindshearts.com</a></span>
     </footer>
 
