@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tough Minds, Tender Hearts</title>
-  <meta name="description" content="Venture studio and coaching practice. Structural rigour and inner work — for founders building something that matters.">
+  <title>Venture Assistant — Tough Minds, Tender Hearts</title>
+  <meta name="description" content="An AI tool that guides founders through the full structural design of a new venture before a penny is spent building.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=IBM+Plex+Mono:wght@300;400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&display=swap" rel="stylesheet">
@@ -85,14 +85,25 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--mid);
+      text-decoration: none;
     }
 
-    .nav-tag {
+    .nav-name:hover {
+      color: var(--ink);
+    }
+
+    .nav-back {
       font-family: var(--mono);
       font-size: 10.5px;
       font-weight: 300;
       letter-spacing: 0.1em;
       color: var(--faint);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .nav-back:hover {
+      color: var(--ink);
     }
 
     /* ── HERO ── */
@@ -166,7 +177,7 @@
       animation: in 0.5s ease forwards 0.9s;
     }
 
-    /* ── SECTION LABEL ── */
+    /* ── WHAT YOU GET ── */
     .section-label {
       font-family: var(--mono);
       font-size: 13px;
@@ -179,136 +190,93 @@
       animation: up 0.5s ease forwards 1.0s;
     }
 
-    /* ── OFFERINGS GRID (2-col) ── */
-    .offerings {
+    .features {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      gap: 0;
       opacity: 0;
       animation: up 0.6s ease forwards 1.1s;
     }
 
     @media (max-width: 680px) {
-      .offerings {
-        grid-template-columns: 1fr;
-      }
+      .features { grid-template-columns: 1fr; }
     }
 
-    .offering {
-      padding: 44px 52px 44px 0;
-      border-top: 2px solid var(--ink);
+    .feature {
+      padding: 36px 52px 36px 0;
+      border-top: 1px solid var(--rule);
     }
 
-    .offering + .offering {
-      padding: 44px 0 44px 52px;
+    .feature:nth-child(even) {
+      padding: 36px 0 36px 52px;
       border-left: 1px solid var(--rule);
     }
 
     @media (max-width: 680px) {
-      .offering {
-        padding: 36px 0;
-      }
-      .offering + .offering {
-        padding: 36px 0;
+      .feature,
+      .feature:nth-child(even) {
+        padding: 28px 0;
         border-left: none;
-        border-top: 1px solid var(--rule);
       }
     }
 
-    /* ── WIDE OFFERING (1-col, horizontal layout) ── */
-    .offering--wide {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 52px;
-      border-top: 2px solid var(--ink);
-      padding: 44px 0;
-      align-items: start;
-      opacity: 0;
-      animation: up 0.6s ease forwards 1.1s;
-    }
-
-    .offering--wide .offering-body {
-      max-width: none;
-    }
-
-    .offering--wide .offering-status {
-      margin-top: 28px;
-    }
-
-    @media (max-width: 680px) {
-      .offering--wide {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-    }
-
-    /* ── OFFERING ELEMENTS ── */
-    .offering-num {
+    .feature-num {
       font-family: var(--mono);
       font-size: 10px;
       font-weight: 400;
       letter-spacing: 0.14em;
       color: var(--accent);
-      margin-bottom: 22px;
+      margin-bottom: 14px;
     }
 
-    .offering-title {
+    .feature-title {
       font-family: var(--serif);
-      font-size: clamp(30px, 3.8vw, 46px);
+      font-size: 22px;
       font-weight: 500;
-      line-height: 1.08;
+      line-height: 1.2;
       color: var(--ink);
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
 
-    .offering-body {
-      font-size: 14.5px;
+    .feature-body {
+      font-size: 14px;
       line-height: 1.78;
       font-weight: 300;
       color: var(--mid);
-      max-width: 360px;
-    }
-
-    .offering-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin-top: 28px;
-      font-family: var(--mono);
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--faint);
-    }
-
-    .offering-status::before {
-      content: '';
-      display: block;
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--accent);
-      opacity: 0.9;
     }
 
     /* ── CTA ── */
-    .offering-cta {
-      display: inline-block;
-      margin-top: 24px;
-      font-family: var(--mono);
-      font-size: 10.5px;
-      font-weight: 400;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink);
-      text-decoration: none;
-      border-bottom: 1px solid var(--ink);
-      padding-bottom: 2px;
-      transition: color 0.15s ease, border-color 0.15s ease;
+    .cta-block {
+      padding: 76px 0 0;
+      opacity: 0;
+      animation: up 0.6s ease forwards 1.3s;
     }
 
-    .offering-cta:hover {
-      color: var(--accent);
-      border-color: var(--accent);
+    .cta-note {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: var(--faint);
+      margin-bottom: 24px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 16px 36px;
+      background: var(--ink);
+      color: var(--bg);
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+
+    .cta-btn:hover {
+      background: var(--accent);
     }
 
     /* ── FOOTER ── */
@@ -320,7 +288,7 @@
       align-items: center;
       margin-top: 80px;
       opacity: 0;
-      animation: in 0.5s ease forwards 1.4s;
+      animation: in 0.5s ease forwards 1.5s;
     }
 
     @media (max-width: 600px) {
@@ -358,73 +326,52 @@
   <div class="wrap">
 
     <nav class="nav">
-      <span class="nav-name">Tough Minds, Tender Hearts</span>
-      <span class="nav-tag">London</span>
+      <a href="index.html" class="nav-name">Tough Minds, Tender Hearts</a>
+      <a href="index.html" class="nav-back">← Back</a>
     </nav>
 
     <header class="hero">
-      <p class="hero-kicker">Venture Studio &amp; Practice</p>
+      <p class="hero-kicker">Tool</p>
       <h1 class="hero-title">
-        <span class="l1">Tough Minds,</span>
-        <span class="l2">Tender Hearts.</span>
+        <span class="l1">Venture</span>
+        <span class="l2">Assistant.</span>
       </h1>
       <div class="hero-text">
-        <p>Most founders are capable of building something great. What gets in the way isn't skill or effort — it's the stories about how entrepreneurship is supposed to go.</p>
-        <p>We work at two levels: the structural architecture of the venture, and the inner work of the person building it.</p>
+        <p>Most ventures fail because the architecture doesn't work — not because the founders lacked vision or effort.</p>
+        <p>The Venture Assistant guides you through the full structural design of your venture before a penny is spent building — resolving the problems that kill most startups at the design stage, not after launch.</p>
       </div>
     </header>
 
     <hr class="divider">
 
     <section>
-      <p class="section-label">Services</p>
-      <div class="offering--wide">
-        <div>
-          <p class="offering-num">01 —</p>
-          <h2 class="offering-title">Business<br>Coaching</h2>
+      <p class="section-label">What you get</p>
+      <div class="features">
+        <div class="feature">
+          <p class="feature-num">01 —</p>
+          <h2 class="feature-title">Market framing</h2>
+          <p class="feature-body">Identify the real commercial opportunity — not the product you imagine, but the structural gap the market is waiting to have filled.</p>
         </div>
-        <div>
-          <p class="offering-body">Most founders are capable of building something great. What gets in the way isn't skill or effort — it's the stories about how entrepreneurship is supposed to go. Coaching that works at two levels: the structural architecture of your venture, and the inner work of becoming the founder your venture actually needs.</p>
-          <span class="offering-status">Taking enquiries</span>
+        <div class="feature">
+          <p class="feature-num">02 —</p>
+          <h2 class="feature-title">Cost architecture</h2>
+          <p class="feature-body">Map the cost-to-value relationship that determines whether your venture can ever be financially viable — before you build anything.</p>
         </div>
-      </div>
-    </section>
-
-    <hr class="divider">
-
-    <section>
-      <p class="section-label">Tools</p>
-      <div class="offerings">
-        <div class="offering">
-          <p class="offering-num">01 —</p>
-          <h2 class="offering-title">Venture<br>Assistant</h2>
-          <p class="offering-body">An AI tool that guides founders through the full structural design of a new venture — market framing, cost architecture, adoption logic — before a penny is spent building.</p>
-          <span class="offering-status">Active</span>
-          <br><a href="venture-assistant.html" class="offering-cta">Find out more</a>
+        <div class="feature">
+          <p class="feature-num">03 —</p>
+          <h2 class="feature-title">Adoption logic</h2>
+          <p class="feature-body">Design for how customers actually change behaviour — not how you hope they will. Identify what makes adoption inevitable rather than effortful.</p>
         </div>
-
-        <div class="offering">
-          <p class="offering-num">02 —</p>
-          <h2 class="offering-title">AI Presence<br>Audit</h2>
-          <p class="offering-body">An audit of how you, your organisation, and your work appear across AI-powered discovery tools. Understand your AI footprint and what it's telling the people who search for you.</p>
-          <span class="offering-status">Active</span>
+        <div class="feature">
+          <p class="feature-num">04 —</p>
+          <h2 class="feature-title">Financial simulation</h2>
+          <p class="feature-body">Test your venture's viability in simulation, not in market. Know your margin of safety before you spend time or capital finding out the hard way.</p>
         </div>
       </div>
-    </section>
 
-    <hr class="divider">
-
-    <section>
-      <p class="section-label">Ventures</p>
-      <div class="offering--wide">
-        <div>
-          <p class="offering-num">01 —</p>
-          <h2 class="offering-title">Online Dispute<br>Resolution</h2>
-        </div>
-        <div>
-          <p class="offering-body">An online service helping individuals resolve small claims without going to court — reaching fair settlements without expensive legal facilitation. Currently in architectural design through Cornell's Market Creators Lab.</p>
-          <span class="offering-status">In development</span>
-        </div>
+      <div class="cta-block">
+        <p class="cta-note">Free. Runs in Claude Code. Based on IVE methodology developed at Cornell University.</p>
+        <a href="https://github.com/tmth-studio/venture-assistant" class="cta-btn">Get the Venture Assistant</a>
       </div>
     </section>
 
