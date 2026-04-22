@@ -39,6 +39,31 @@
       overflow-x: hidden;
     }
 
+    /* ── BETA BANNER ── */
+    .beta-banner {
+      background: var(--ink);
+      color: var(--bg);
+      text-align: center;
+      padding: 11px 24px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+    }
+
+    .beta-banner a {
+      color: var(--accent);
+      text-decoration: none;
+      margin-left: 10px;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 1px;
+      transition: opacity 0.15s ease;
+    }
+
+    .beta-banner a:hover {
+      opacity: 0.75;
+    }
+
     /* Grain overlay */
     body::after {
       content: '';
@@ -323,6 +348,10 @@
   </style>
 </head>
 <body>
+  <div class="beta-banner">
+    This tool is in beta — we'd love your feedback.<a href="mailto:tom@toughmindstenderhearts.com">Share your thoughts →</a>
+  </div>
+
   <div class="wrap">
 
     <nav class="nav">
