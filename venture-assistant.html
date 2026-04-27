@@ -39,31 +39,6 @@
       overflow-x: hidden;
     }
 
-    /* ── BETA BANNER ── */
-    .beta-banner {
-      background: var(--ink);
-      color: var(--bg);
-      text-align: center;
-      padding: 11px 24px;
-      font-family: var(--mono);
-      font-size: 10.5px;
-      font-weight: 300;
-      letter-spacing: 0.1em;
-    }
-
-    .beta-banner a {
-      color: var(--accent);
-      text-decoration: none;
-      margin-left: 10px;
-      border-bottom: 1px solid var(--accent);
-      padding-bottom: 1px;
-      transition: opacity 0.15s ease;
-    }
-
-    .beta-banner a:hover {
-      opacity: 0.75;
-    }
-
     /* Grain overlay */
     body::after {
       content: '';
@@ -93,6 +68,29 @@
       to   { opacity: 1; }
     }
 
+    /* ── BETA BANNER ── */
+    .beta-banner {
+      background: var(--ink);
+      color: var(--bg);
+      text-align: center;
+      padding: 11px 24px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+    }
+
+    .beta-banner a {
+      color: var(--accent);
+      text-decoration: none;
+      margin-left: 10px;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 1px;
+      transition: opacity 0.15s ease;
+    }
+
+    .beta-banner a:hover { opacity: 0.75; }
+
     /* ── NAV ── */
     .nav {
       display: flex;
@@ -111,11 +109,10 @@
       text-transform: uppercase;
       color: var(--mid);
       text-decoration: none;
+      transition: color 0.15s ease;
     }
 
-    .nav-name:hover {
-      color: var(--ink);
-    }
+    .nav-name:hover { color: var(--ink); }
 
     .nav-back {
       font-family: var(--mono);
@@ -127,9 +124,7 @@
       transition: color 0.15s ease;
     }
 
-    .nav-back:hover {
-      color: var(--ink);
-    }
+    .nav-back:hover { color: var(--ink); }
 
     /* ── HERO ── */
     .hero {
@@ -189,9 +184,7 @@
       color: var(--ink);
     }
 
-    .hero-text p + p {
-      margin-top: 14px;
-    }
+    .hero-text p + p { margin-top: 14px; }
 
     /* ── RULE ── */
     .divider {
@@ -202,7 +195,7 @@
       animation: in 0.5s ease forwards 0.9s;
     }
 
-    /* ── WHAT YOU GET ── */
+    /* ── SECTION LABEL ── */
     .section-label {
       font-family: var(--mono);
       font-size: 13px;
@@ -215,58 +208,73 @@
       animation: up 0.5s ease forwards 1.0s;
     }
 
-    .features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
+    /* ── PROCESS STEPS ── */
+    .process {
       opacity: 0;
       animation: up 0.6s ease forwards 1.1s;
     }
 
-    @media (max-width: 680px) {
-      .features { grid-template-columns: 1fr; }
-    }
-
-    .feature {
-      padding: 36px 52px 36px 0;
+    .process-step {
+      display: grid;
+      grid-template-columns: 64px 1fr;
+      gap: 0 40px;
+      padding: 40px 0;
       border-top: 1px solid var(--rule);
     }
 
-    .feature:nth-child(even) {
-      padding: 36px 0 36px 52px;
-      border-left: 1px solid var(--rule);
+    .process-step:first-child {
+      border-top: 2px solid var(--ink);
     }
 
     @media (max-width: 680px) {
-      .feature,
-      .feature:nth-child(even) {
-        padding: 28px 0;
-        border-left: none;
+      .process-step {
+        grid-template-columns: 1fr;
+        gap: 12px 0;
       }
     }
 
-    .feature-num {
+    .step-num {
       font-family: var(--mono);
       font-size: 10px;
       font-weight: 400;
       letter-spacing: 0.14em;
       color: var(--accent);
+      padding-top: 5px;
+    }
+
+    .step-title {
+      font-family: var(--serif);
+      font-size: clamp(24px, 2.8vw, 34px);
+      font-weight: 500;
+      line-height: 1.08;
+      color: var(--ink);
       margin-bottom: 14px;
     }
 
-    .feature-title {
-      font-family: var(--serif);
-      font-size: 22px;
-      font-weight: 500;
-      line-height: 1.2;
-      color: var(--ink);
-      margin-bottom: 12px;
-    }
-
-    .feature-body {
-      font-size: 14px;
+    .step-body {
+      font-size: 14.5px;
       line-height: 1.78;
       font-weight: 300;
+      color: var(--mid);
+      max-width: 600px;
+    }
+
+    .step-example {
+      margin-top: 18px;
+      padding: 14px 20px;
+      border-left: 2px solid var(--rule);
+      font-size: 13.5px;
+      line-height: 1.72;
+      font-weight: 300;
+      color: var(--faint);
+      font-style: italic;
+      max-width: 560px;
+    }
+
+    .step-def {
+      display: inline;
+      font-style: normal;
+      font-weight: 400;
       color: var(--mid);
     }
 
@@ -300,9 +308,7 @@
       transition: background 0.15s ease;
     }
 
-    .cta-btn:hover {
-      background: var(--accent);
-    }
+    .cta-btn:hover { background: var(--accent); }
 
     /* ── FOOTER ── */
     .footer {
@@ -317,11 +323,7 @@
     }
 
     @media (max-width: 600px) {
-      .footer {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
+      .footer { flex-direction: column; align-items: flex-start; gap: 12px; }
     }
 
     .footer-copy,
@@ -341,13 +343,11 @@
       transition: color 0.15s ease, border-color 0.15s ease;
     }
 
-    .footer-contact a:hover {
-      color: var(--ink);
-      border-color: var(--ink);
-    }
+    .footer-contact a:hover { color: var(--ink); border-color: var(--ink); }
   </style>
 </head>
 <body>
+
   <div class="beta-banner">
     This tool is in beta — we'd love your feedback.<a href="mailto:tom@toughmindstenderhearts.com">Share your thoughts →</a>
   </div>
@@ -367,35 +367,133 @@
       </h1>
       <div class="hero-text">
         <p>Most ventures fail because the architecture doesn't work — not because the founders lacked vision or effort.</p>
-        <p>The Venture Assistant guides you through the full structural design of your venture before a penny is spent building — resolving the problems that kill most startups at the design stage, not after launch.</p>
+        <p>The Venture Assistant guides you through the full structural design of your venture before a penny is spent building. The process below is what it takes you through.</p>
       </div>
     </header>
 
     <hr class="divider">
 
+    <!-- DESIGN PHASE -->
     <section>
-      <p class="section-label">What you get</p>
-      <div class="features">
-        <div class="feature">
-          <p class="feature-num">01 —</p>
-          <h2 class="feature-title">Market framing</h2>
-          <p class="feature-body">Identify the real commercial opportunity — not the product you imagine, but the structural gap the market is waiting to have filled.</p>
+      <p class="section-label">Phase 1 — Design</p>
+      <div class="process">
+
+        <div class="process-step">
+          <div class="step-num">01 —</div>
+          <div>
+            <h2 class="step-title">Map the conventional model</h2>
+            <p class="step-body">How is the problem currently being solved? What activities, costs, and players are involved in the standard approach? This is your baseline — the architecture you are designing against.</p>
+          </div>
         </div>
-        <div class="feature">
-          <p class="feature-num">02 —</p>
-          <h2 class="feature-title">Cost architecture</h2>
-          <p class="feature-body">Map the cost-to-value relationship that determines whether your venture can ever be financially viable — before you build anything.</p>
+
+        <div class="process-step">
+          <div class="step-num">02 —</div>
+          <div>
+            <h2 class="step-title">Find the critical cost driver</h2>
+            <p class="step-body">Within the conventional model, identify the single activity that makes the business structurally unviable at scale. This is the constraint that determines whether a new venture can ever be financially sound — not a cost to be reduced, but a constraint to be designed around.</p>
+            <p class="step-example">In small claims legal disputes, the critical cost driver was expert legal facilitation — skilled professionals needed to de-escalate conflict and guide both parties to settlement. Expensive, hard to scale, unavoidable in the conventional model.</p>
+          </div>
         </div>
-        <div class="feature">
-          <p class="feature-num">03 —</p>
-          <h2 class="feature-title">Adoption logic</h2>
-          <p class="feature-body">Design for how customers actually change behaviour — not how you hope they will. Identify what makes adoption inevitable rather than effortful.</p>
+
+        <div class="process-step">
+          <div class="step-num">03 —</div>
+          <div>
+            <h2 class="step-title">Design around it</h2>
+            <p class="step-body">Use theory — psychology, economics, systems science — to find a mechanism that eliminates or bypasses the critical cost driver entirely. Not a cheaper version of the same thing. A different mechanism altogether. This is where the genuine architectural innovation lives, and where financial modelling confirms whether it works before anything is built.</p>
+            <p class="step-example">Instead of expert facilitators, digitally disintermediate the negotiation — keep parties in separate spaces, use an algorithmic auction to calculate the optimal settlement. The same logic powered microfinance: instead of expensive individual creditworthiness checks, lend to peer groups who self-select and hold each other accountable.</p>
+          </div>
         </div>
-        <div class="feature">
-          <p class="feature-num">04 —</p>
-          <h2 class="feature-title">Financial simulation</h2>
-          <p class="feature-body">Test your venture's viability in simulation, not in market. Know your margin of safety before you spend time or capital finding out the hard way.</p>
+
+        <div class="process-step">
+          <div class="step-num">04 —</div>
+          <div>
+            <h2 class="step-title">Eliminate a key customer cost</h2>
+            <p class="step-body">Identify what significant cost the product must remove from how customers currently achieve an important objective. Not a marginal improvement — a meaningful reduction in something they genuinely need to solve. The larger the cost eliminated, the stronger the adoption pull.</p>
+          </div>
         </div>
+
+        <div class="process-step">
+          <div class="step-num">05 —</div>
+          <div>
+            <h2 class="step-title">Model the scaling cost</h2>
+            <p class="step-body">Calculate the biggest cost that will emerge as you grow, given how you are currently conceiving the product and operations. Find it now — in simulation — before you have built anything and while changing course is still cheap.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num">06 —</div>
+          <div>
+            <h2 class="step-title">Design for value clarity</h2>
+            <p class="step-body">Structure the product so customers can easily perceive and extract the value. Friction here — even when the underlying product works — kills adoption. The product needs to communicate what it does and deliver that outcome with minimal effort from the customer.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num">07 —</div>
+          <div>
+            <h2 class="step-title">Design for gateway distribution</h2>
+            <p class="step-body">A <span class="step-def">gateway partner</span> is an organisation that already has a trusted relationship with your target customer — a financial institution, a professional body, a trade association — and through which your product can credibly be introduced. Rather than building a direct customer relationship from scratch, the venture is designed to be sold through a gateway partner's existing channel. This requires designing a distinct product specifically for the partner, whose own needs must be addressed before they will carry yours.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num">08 —</div>
+          <div>
+            <h2 class="step-title">Define and protect the key resource</h2>
+            <p class="step-body">Identify the single resource that is essential to delivering your core competence — and design a moat around it. The goal is to make your position structurally difficult for competitors to replicate, not just temporarily hard. A proprietary dataset, a certified network, an exclusive partnership: something that compounds over time and cannot simply be bought.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num">09 —</div>
+          <div>
+            <h2 class="step-title">Complete the at-scale operational model</h2>
+            <p class="step-body">Build a full picture of how product flows to the customer, how marketing and information flows, and how money flows back. Every activity costed. Every role mapped to an at-scale HR structure. The design phase is complete when this model holds together financially — not before.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- BUILD PHASE -->
+    <section>
+      <p class="section-label">Phase 2 — Build</p>
+      <div class="process">
+
+        <div class="process-step">
+          <div class="step-num">01 —</div>
+          <div>
+            <h2 class="step-title">Prototype key activities</h2>
+            <p class="step-body">Identify the activities where you most need to build confidence — specifically those that must work within tight cost parameters defined during design. Test each independently, before assembling the system. The question is not "can we build this?" but "can we deliver this at the cost the model requires?"</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num">02 —</div>
+          <div>
+            <h2 class="step-title">Test subsystems</h2>
+            <p class="step-body">Test clusters of related activities together — the sales process, the delivery process, the support process. Stress-test the interfaces between components before connecting everything into a single system.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num">03 —</div>
+          <div>
+            <h2 class="step-title">Whole system test</h2>
+            <p class="step-body">Launch the smallest operating unit that is statistically representative of the venture at scale. Not a pilot in the loose sense — a real, functioning miniature of the full system, designed to generate data that is meaningful at scale.</p>
+          </div>
+        </div>
+
+        <div class="process-step">
+          <div class="step-num">04 —</div>
+          <div>
+            <h2 class="step-title">Scale</h2>
+            <p class="step-body">Replicate the proven operating unit. At this point, growth is replication — not reinvention. The structural work is done. The venture is designed to scale without requiring a new architecture at each stage.</p>
+          </div>
+        </div>
+
       </div>
 
       <div class="cta-block">
