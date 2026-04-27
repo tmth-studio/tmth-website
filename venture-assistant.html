@@ -129,7 +129,7 @@
     /* ── HERO ── */
     .hero {
       padding-top: 104px;
-      padding-bottom: 80px;
+      padding-bottom: 52px;
     }
 
     .hero-kicker {
@@ -185,6 +185,68 @@
     }
 
     .hero-text p + p { margin-top: 14px; }
+
+    /* ── COST CALLOUT ── */
+    .cost-callout {
+      border-top: 2px solid var(--ink);
+      padding: 48px 0 56px;
+      opacity: 0;
+      animation: up 0.6s ease forwards 0.78s;
+    }
+
+    .cost-label {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 36px;
+    }
+
+    .cost-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .cost-stat {
+      padding-right: 48px;
+    }
+
+    .cost-stat + .cost-stat {
+      padding-left: 48px;
+      padding-right: 48px;
+      border-left: 1px solid var(--rule);
+    }
+
+    .cost-stat:last-child {
+      padding-right: 0;
+    }
+
+    .cost-num {
+      display: block;
+      font-family: var(--serif);
+      font-size: clamp(48px, 6.5vw, 88px);
+      font-weight: 500;
+      line-height: 1;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    .cost-desc {
+      display: block;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+
+    @media (max-width: 600px) {
+      .cost-stats { grid-template-columns: 1fr; gap: 32px 0; }
+      .cost-stat + .cost-stat { padding-left: 0; border-left: none; border-top: 1px solid var(--rule); padding-top: 32px; }
+    }
 
     /* ── RULE ── */
     .divider {
@@ -370,6 +432,24 @@
         <p>The Venture Assistant guides you through the full structural design of your venture before a penny is spent building. The process below is what it takes you through.</p>
       </div>
     </header>
+
+    <div class="cost-callout">
+      <p class="cost-label">The cost of an architectural change</p>
+      <div class="cost-stats">
+        <div class="cost-stat">
+          <span class="cost-num">1×</span>
+          <span class="cost-desc">At design stage</span>
+        </div>
+        <div class="cost-stat">
+          <span class="cost-num">100×</span>
+          <span class="cost-desc">Once prototyped</span>
+        </div>
+        <div class="cost-stat">
+          <span class="cost-num">1,000×</span>
+          <span class="cost-desc">Once in operation</span>
+        </div>
+      </div>
+    </div>
 
     <hr class="divider">
 
